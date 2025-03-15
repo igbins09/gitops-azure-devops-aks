@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  namespace: default
+  namespace: default  # Ensure this is present
 spec:
   replicas: 1
   selector:
@@ -15,10 +15,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: myacrx.azurecr.io/myapp:1743
+        image: nginx  # Replace with your actual image
         ports:
         - containerPort: 80
-        resources:  # Add to comply with policy
-          limits:
-            cpu: "500m" 
-            memory: "512Mi"  
