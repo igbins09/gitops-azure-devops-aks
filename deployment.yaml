@@ -14,6 +14,10 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: myacrx.azurecr.io/myapp:0  # Initial tag, updated by pipeline
+        image: myacrx.azurecr.io/myapp:0  # Updated to myacrx
         ports:
         - containerPort: 80
+        resources:  # Add to comply with policy
+          limits:
+            cpu: "500m" 
+            memory: "512Mi"  
