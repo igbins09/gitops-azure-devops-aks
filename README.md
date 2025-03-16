@@ -41,4 +41,4 @@ A GitOps pipeline for deploying to Azure Kubernetes Service (AKS) using Azure De
 - ![Secrets Integration](screenshots/keyvault-integration.png)
 
 ## Conclusion
-This project showcases a robust GitOps workflow adaptable to production environments.
+This project showcases a robust GitOps workflow.
