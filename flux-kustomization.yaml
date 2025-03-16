@@ -9,9 +9,4 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: gitops-repo  # Replace with your Git repo name in Flux
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: myapp
-      namespace: default
+    name: gitops-repo

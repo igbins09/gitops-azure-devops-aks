@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  namespace: default
+  namespace: myapp-namespace  # Change this
 spec:
   replicas: 1
   selector:
@@ -15,15 +15,12 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: nginx  # Replace with your app’s image if different
-        volumeMounts:
-        - name: secrets-store-inline
-          mountPath: "/mnt/secrets"
-          readOnly: true
-      volumes:
-      - name: secrets-store-inline
-        csi:
-          driver: secrets-store.csi.k8s.io
-          readOnly: true
-          volumeAttributes:
-            secretProviderClass: "myapp-secrets"
+        image: nginx:broken
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"  # Lowered to avoid policy
+            cpu: "500m"

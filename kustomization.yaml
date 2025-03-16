@@ -4,4 +4,5 @@ namespace: default  # Automatically applies to all resources
 resources:
 - deployment.yaml
 - service.yaml
+- secret-provider-class.yaml
 # Add any other manifests here
