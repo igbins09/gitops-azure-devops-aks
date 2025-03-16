@@ -1,14 +1,11 @@
-trigger: none  # This ensures it’s manual-only
-
+trigger: none
 pool:
   vmImage: 'ubuntu-latest'
-
 steps:
-- checkout: self  # Fetches the repo
-
+- checkout: self
 - script: |
     git config --global user.email "richard.igbinoba@yahoo.com"
     git config --global user.name "igbins09"
-    git revert HEAD --no-edit  # Reverts the last commit
-    git push https://$(System.AccessToken)@dev.azure.com/RichardIgbinoba/GitOpsDemo/_git/gitops-repo HEAD:main  # Pushes to the main branch
-  displayName: 'Revert Last Commit'
+    git revert 5ee98fe..HEAD --no-edit  # Revert from 5ee98fe to current HEAD
+    git push https://$(System.AccessToken)@dev.azure.com/RichardIgbinoba/GitOpsDemo/_git/gitops-repo HEAD:main
+  displayName: 'Revert to Working State'
