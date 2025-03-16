@@ -4,8 +4,8 @@ pool:
 steps:
 - checkout: self
 - script: |
-    git config --global user.email "richard.igbinoba@yahoo.com"
-    git config --global user.name "igbins09"
+    git config --global user.email "email"
+    git config --global user.name "username"
     git revert 5ee98fe..HEAD --no-edit  # Revert from 5ee98fe to current HEAD
-    git push https://$(System.AccessToken)@dev.azure.com/RichardIgbinoba/GitOpsDemo/_git/gitops-repo HEAD:main
+    git push https://$(System.AccessToken)@dev.azure.com/<orgname>/GitOpsDemo/_git/gitops-repo HEAD:main
   displayName: 'Revert to Working State'
